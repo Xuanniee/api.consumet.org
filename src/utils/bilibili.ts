@@ -1,6 +1,6 @@
 import { FastifyRequest, FastifyReply, FastifyInstance, RegisterOptions } from 'fastify';
 import axios from 'axios';
-import { BilibiliExtractor } from '@consumet/extensions/dist/utils';
+// import { BilibiliExtractor } from '@consumet/extensions/dist/utils';
 
 class BilibiliUtilis {
   private apiUrl = 'https://api.bilibili.tv/intl/gateway/web';

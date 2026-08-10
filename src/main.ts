@@ -4,11 +4,11 @@ import Fastify from 'fastify';
 import FastifyCors from '@fastify/cors';
 import fs from 'fs';
 
-import books from './routes/books';
+// import books from './routes/books';
 import anime from './routes/anime';
 import manga from './routes/manga';
 import comics from './routes/comics';
-import lightnovels from './routes/light-novels';
+// import lightnovels from './routes/light-novels';
 import movies from './routes/movies';
 import meta from './routes/meta';
 import news from './routes/news';
@@ -131,11 +131,11 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
       chalk.yellowBright('TMDB api key not found. the TMDB meta route may not work.'),
     );
 
-  await fastify.register(books, { prefix: '/books' });
+  // await fastify.register(books, { prefix: '/books' });
   await fastify.register(anime, { prefix: '/anime' });
   await fastify.register(manga, { prefix: '/manga' });
   //await fastify.register(comics, { prefix: '/comics' });
-  await fastify.register(lightnovels, { prefix: '/light-novels' });
+  // await fastify.register(lightnovels, { prefix: '/light-novels' });
   await fastify.register(movies, { prefix: '/movies' });
   await fastify.register(meta, { prefix: '/meta' });
   await fastify.register(news, { prefix: '/news' });
@@ -145,9 +145,10 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
   try {
     fastify.get('/', (_, rp) => {
       rp.status(200).send(
-        `Welcome to consumet api! 🎉 \n${process.env.NODE_ENV === 'DEMO'
-          ? 'This is a demo of the api. You should only use this for testing purposes.'
-          : ''
+        `Welcome to consumet api! 🎉 \n${
+          process.env.NODE_ENV === 'DEMO'
+            ? 'This is a demo of the api. You should only use this for testing purposes.'
+            : ''
         }`,
       );
     });
@@ -168,6 +169,6 @@ export const tmdbApi = process.env.TMDB_KEY && process.env.TMDB_KEY;
   }
 })();
 export default async function handler(req: any, res: any) {
-  await fastify.ready()
-  fastify.server.emit('request', req, res)
+  await fastify.ready();
+  fastify.server.emit('request', req, res);
 }
