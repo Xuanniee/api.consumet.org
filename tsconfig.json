@@ -34,6 +34,11 @@
   "exclude": [
     "node_modules",
     "<node_internals>/**",
-    "bin/**"
+    "bin/**",
+    "src/routes/books/**",
+    "src/routes/light-novels/**",
+    "src/utils/bilibili.ts",
+    "src/routes/meta/anilist.ts",
+    "src/routes/manga/mangakakalot.ts"
   ]
 }
